@@ -5,9 +5,10 @@ import React from 'react';
 
 function App() {
 
+  
   const [score, setScore] = React.useState(0)
 
-  const data = [
+  const data1 = [
     {key: 1, value: "card one", isClicked: false},
     {key: 2, value: "card two", isClicked: false},
     {key: 3, value: "card three", isClicked: false},
@@ -18,6 +19,10 @@ function App() {
     {key: 8, value: "card eight", isClicked: false},
   ]
 
+
+  const [data, setData] = React.useState(data1)
+
+  
   function modifyScore() {
     setScore(prevScore => prevScore + 1)
   }
