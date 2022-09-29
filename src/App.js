@@ -1,8 +1,11 @@
 import './App.css';
 import Card from './Card';
 import { nanoid } from 'nanoid' 
+import React from 'react';
 
 function App() {
+
+  const [score, setScore] = React.useState(0)
 
   const data = [
     {key: 1, value: "card one", isClicked: false},
@@ -15,13 +18,19 @@ function App() {
     {key: 8, value: "card eight", isClicked: false},
   ]
 
+  function modifyScore() {
+    setScore(prevScore => prevScore + 1)
+  }
+
   const dataRender = data.map(({value})=> {
-    return <Card key={nanoid()} input={value}/>
+    return <Card key={nanoid()} input={value} clickHandle={modifyScore}/>
   })
 
   return (
     <div className="App">
+
       <h1>Memory Card Game</h1>
+      <h2>Current Score: {score}</h2>
       <div className='card-container'>
         {dataRender}
       </div>
