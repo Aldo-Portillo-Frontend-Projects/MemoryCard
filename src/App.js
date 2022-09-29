@@ -15,22 +15,15 @@ function App() {
     {key: 8, value: "card eight", isClicked: false},
   ]
 
+  const dataRender = data.map(({value})=> {
+    return <Card key={nanoid()} input={value}/>
+  })
 
-  function clickCard(e, key) {
-    console.log(e.target.id)
-  }
   return (
     <div className="App">
       <h1>Memory Card Game</h1>
       <div className='card-container'>
-        <Card input="rendered card" clickHandle={clickCard} id={nanoid()}/>
-        <Card input="rendered card" clickHandle={clickCard} id={nanoid()}/>
-        <Card input="rendered card" clickHandle={clickCard} id={nanoid()}/>
-        <Card input="rendered card" clickHandle={clickCard} id={nanoid()}/>
-        <Card input="rendered card" clickHandle={clickCard} id={nanoid()}/>
-        <Card input="rendered card" clickHandle={clickCard} id={nanoid()}/>
-        <Card input="rendered card" clickHandle={clickCard} id={nanoid()}/>
-        <Card input="rendered card" clickHandle={clickCard} id={nanoid()}/>
+        {dataRender}
       </div>
     </div>
   );
