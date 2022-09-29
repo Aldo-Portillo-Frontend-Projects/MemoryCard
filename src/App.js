@@ -9,26 +9,33 @@ function App() {
   const [score, setScore] = React.useState(0)
 
   const data1 = [
-    {key: 1, value: "card one", isClicked: false},
-    {key: 2, value: "card two", isClicked: false},
-    {key: 3, value: "card three", isClicked: false},
-    {key: 4, value: "card four", isClicked: false},
-    {key: 5, value: "card five", isClicked: false},
-    {key: 6, value: "card six", isClicked: false},
-    {key: 7, value: "card seven", isClicked: false},
-    {key: 8, value: "card eight", isClicked: false},
+    {key: nanoid(), value: "card one", isClicked: false},
+    {key: nanoid(), value: "card two", isClicked: false},
+    {key: nanoid(), value: "card three", isClicked: false},
+    {key: nanoid(), value: "card four", isClicked: false},
+    {key: nanoid(), value: "card five", isClicked: false},
+    {key: nanoid(), value: "card six", isClicked: false},
+    {key: nanoid(), value: "card seven", isClicked: false},
+    {key: nanoid(), value: "card eight", isClicked: false},
   ]
 
 
   const [data, setData] = React.useState(data1)
 
-  
-  function modifyScore() {
+
+  function modifyScore(id) {
     setScore(prevScore => prevScore + 1)
+    setData(prevData => prevData.map(card => {
+      return card.key === id ? {...card, isClicked: true} : card  ;
+      
+    }))
+    console.log(id)
   }
 
-  const dataRender = data.map(({value})=> {
-    return <Card key={nanoid()} input={value} clickHandle={modifyScore}/>
+  console.log(data)
+
+  const dataRender = data.map(card => {
+    return <Card key={card.key} input={card.value} clickHandle={() => modifyScore(card.key)} />
   })
 
   return (
