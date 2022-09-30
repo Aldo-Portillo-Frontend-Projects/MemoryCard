@@ -16,22 +16,33 @@ function App() {
 
 
 
-  React.useEffect(()=> {
-    const allCardsClicked = data.every(data => data.isClicked === true)
+  // React.useEffect(()=> {
+  //   const allCardsClicked = data.every(data => data.isClicked === true)
 
 
-    console.log(allCardsClicked)
-    if(allCardsClicked){
-      setLevel(2)
-    }
-  }, [data])
+  //   console.log(allCardsClicked)
+  //   if(allCardsClicked){
+  //     setLevel(prevLevel => prevLevel + 1) //Maybe instead of setting level when all cards are clicked it should be done when a certain score is met
+  //   }                                      //I only needed is clicked to reset score if it has already clicked but when score is equal to 0 i should use an effect that makes all the values back to 0
+  // }, [data])
 
   React.useEffect(()=>{
     setData(levels(level))
   },[level])
+
+  React.useEffect(()=> { //I will need a case for 0 score that makes all isClicked false, followed by an array.length === to score to srt level to the next one
+    if(score === data.length){
+      setLevel(prevLevel => prevLevel + 1)
+      setScore(0)
+    } else if (score === 0){
+      setData(prevData => prevData.map(card => {
+        return {...card, isClicked: false};
+      }))
+    }
+  },[score])
   
 
-  
+  console.log(data.length)
 
 
   function modifyScore(id, isClicked) {
