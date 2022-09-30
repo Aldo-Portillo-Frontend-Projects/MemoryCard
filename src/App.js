@@ -85,9 +85,11 @@ function App() {
     <div className="App">
 
       <h1>Memory Card Game</h1>
-      <div className='subHeader'>
-        <h2>Current Score: {score}</h2>
+      <div className='sub-header'>
         <h2>Level: {level}</h2>
+
+        <h2>Current Score: {score}</h2>
+        
       </div>
       <div className='card-container'>
         {dataRender}
