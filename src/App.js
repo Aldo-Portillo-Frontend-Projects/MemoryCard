@@ -10,6 +10,23 @@ function App() {
 
   const [level, setLevel] = React.useState(1) //USe state to check is clicked
 
+  const [data, setData] = React.useState(levels(level))
+
+
+
+  React.useEffect(()=> {
+    const allCardsClicked = data.every(data => data.isClicked === true)
+
+
+    console.log(allCardsClicked)
+    if(allCardsClicked){
+      setLevel(2)
+    }
+  }, [data])
+
+  React.useEffect(()=>{
+    setData(levels(level))
+  },[level])
   function levels (level) {
     if (level === 1) {
       return [
@@ -40,7 +57,7 @@ function App() {
     }
   }
 
-  const [data, setData] = React.useState(levels(2))
+  
 
 
   function modifyScore(id, isClicked) {
