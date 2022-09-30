@@ -1,7 +1,9 @@
 import './App.css';
 import Card from './Card';
-import { nanoid } from 'nanoid' 
+
 import React from 'react';
+
+import levels from './data'
 
 function App() {
 
@@ -27,35 +29,7 @@ function App() {
   React.useEffect(()=>{
     setData(levels(level))
   },[level])
-  function levels (level) {
-    if (level === 1) {
-      return [
-        {key: nanoid(), value: "card one", isClicked: false},
-        {key: nanoid(), value: "card two", isClicked: false},
-        {key: nanoid(), value: "card three", isClicked: false},
-        {key: nanoid(), value: "card four", isClicked: false},
-        {key: nanoid(), value: "card five", isClicked: false},
-        {key: nanoid(), value: "card six", isClicked: false},
-        {key: nanoid(), value: "card seven", isClicked: false},
-        {key: nanoid(), value: "card eight", isClicked: false},
-      ]
-    } else if (level === 2) {
-      return [
-        {key: nanoid(), value: "card one", isClicked: false},
-        {key: nanoid(), value: "card two", isClicked: false},
-        {key: nanoid(), value: "card three", isClicked: false},
-        {key: nanoid(), value: "card four", isClicked: false},
-        {key: nanoid(), value: "card five", isClicked: false},
-        {key: nanoid(), value: "card six", isClicked: false},
-        {key: nanoid(), value: "card seven", isClicked: false},
-        {key: nanoid(), value: "card eight", isClicked: false},
-        {key: nanoid(), value: "card nine", isClicked: false},
-        {key: nanoid(), value: "card ten", isClicked: false},
-        {key: nanoid(), value: "card eleven", isClicked: false},
-        {key: nanoid(), value: "card twelve", isClicked: false},
-      ]
-    }
-  }
+  
 
   
 
@@ -87,7 +61,10 @@ function App() {
     <div className="App">
 
       <h1>Memory Card Game</h1>
-      <h2>Current Score: {score}</h2>
+      <div className='subHeader'>
+        <h2>Current Score: {score}</h2>
+        <h2>Level: {level}</h2>
+      </div>
       <div className='card-container'>
         {dataRender}
       </div>
