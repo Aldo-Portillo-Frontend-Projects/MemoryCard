@@ -40,6 +40,18 @@ function App() {
       }))
     }
   },[score])
+
+  function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      let j = Math.floor(Math.random() * (i + 1));
+      let temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+    }
+    return array;
+  }
+
+  //setData(prevData => shuffle(prevData))
   
 
   console.log(data.length)
@@ -49,6 +61,7 @@ function App() {
 
     if(isClicked === false){
       setScore(prevScore => prevScore + 1)
+      setData(prevData => shuffle(prevData))
     } else {
       setScore(0)
     }
