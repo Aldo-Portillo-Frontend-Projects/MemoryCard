@@ -78,7 +78,7 @@ function App() {
   console.log(data)
 
   const dataRender = data.map(card => {
-    return <Card key={card.key} input={card.value} clickHandle={() => modifyScore(card.key, card.isClicked)} />
+    return <Card key={card.key} input={card.value} clickHandle={() => modifyScore(card.key, card.isClicked)} img={card.img}/>
   })
 
   return (
