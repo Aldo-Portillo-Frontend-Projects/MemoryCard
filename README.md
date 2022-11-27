@@ -14,4 +14,4 @@
 - Maybe add two jokers that are identical so people have to open developer tools to find the key of each jack and add more of a challenge
 - Invoke shuffle function when the component mounts
 
-[Active Site](https://aldoportillo.github.io/MemoryCard/)
+[Active Site](https://memory-card-three.vercel.app/)
